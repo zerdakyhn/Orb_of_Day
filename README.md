@@ -1,36 +1,48 @@
-#  Orb of Day
+# 🚀 Orb of Day
 
-A task and productivity management backend application developed with **FastAPI**.
+A modern task and productivity management backend application built with **FastAPI**.
 
-This project is being developed throughout my software engineering internship. New features are implemented incrementally and documented daily.
+Orb of Day is a RESTful API designed to help users organize their daily tasks, manage productivity, and support future AI-powered recommendations.
+
+The project follows modern backend development practices including layered architecture, secure authentication, and scalable API design.
 
 ---
 
 # 📖 Project Overview
 
-Orb of Day is a RESTful backend application designed to help users organize daily tasks, improve productivity, and manage their workflow efficiently.
+Orb of Day aims to provide a clean and scalable backend for a productivity application.
+
+Current focus areas include:
+
+- User Management
+- Authentication & Security
+- Task Management
+- RESTful API Development
+- AI Integration (Upcoming)
 
 ---
 
-# 🛠️ Technologies
+# 🛠️ Tech Stack
 
-- Python
-- FastAPI
-- SQLAlchemy
-- SQLite
-- Pydantic
-- bcrypt
-- Uvicorn
+| Technology | Purpose |
+|------------|---------|
+| Python | Programming Language |
+| FastAPI | Backend Framework |
+| SQLAlchemy | ORM |
+| SQLite | Database |
+| Pydantic | Data Validation |
+| bcrypt | Password Hashing |
+| Uvicorn | ASGI Server |
 
 ---
 
 # 📂 Project Structure
 
-```
-Orb_of_Day/
+```text
+Orb_of_Day
 │
-├── app/
-│   ├── routers/
+├── app
+│   ├── routers
 │   │   ├── user.py
 │   │   └── task.py
 │   │
@@ -47,27 +59,54 @@ Orb_of_Day/
 
 ---
 
-# ✅ Completed Features
+# ✨ Current Features
 
-- FastAPI project setup
-- SQLite database integration
-- SQLAlchemy ORM configuration
+### User Management
+
 - User database model
 - User registration endpoint
-- Password hashing using bcrypt
+- Email validation
+- Secure password hashing using bcrypt
+
+### Backend
+
+- FastAPI application structure
+- SQLAlchemy integration
+- SQLite database
+- RESTful API architecture
 - Swagger API documentation
 
 ---
 
-#  Upcoming Features
+# 🚧 Planned Features
+
+### Authentication
 
 - User Login
 - JWT Authentication
 - Protected Routes
-- Task CRUD Operations
-- AI Task Suggestions
+
+### Task Management
+
+- Create Task
+- Update Task
+- Delete Task
+- Complete Task
+- Task Categories
+- Due Dates
+
+### Productivity
+
 - Dashboard
-- Productivity Statistics
+- Statistics
+- Daily Progress
+- Productivity Reports
+
+### Artificial Intelligence
+
+- AI Task Suggestions
+- Smart Productivity Analysis
+- Personalized Recommendations
 
 ---
 
@@ -79,19 +118,49 @@ Clone the repository
 git clone https://github.com/zerdakyhn/Orb_of_Day.git
 ```
 
+Move into the project directory
+
+```bash
+cd Orb_of_Day
+```
+
+Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate the virtual environment
+
+**macOS / Linux**
+
+```bash
+source venv/bin/activate
+```
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
 Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the project
+Run the application
 
 ```bash
 python -m uvicorn app.main:app --reload
 ```
 
-Swagger Documentation
+---
+
+# 📚 API Documentation
+
+After starting the server, Swagger UI is available at:
 
 ```
 http://127.0.0.1:8000/docs
@@ -99,18 +168,18 @@ http://127.0.0.1:8000/docs
 
 ---
 
-# 📅 Internship Progress
+# 📈 Development Progress
 
 ## ✅ Days 1–2
 
-### Project Initialization
+### Project Foundation
+
 - Created FastAPI project
-- Configured project structure
+- Configured application architecture
+- Integrated SQLAlchemy
 - Connected SQLite database
-- Configured SQLAlchemy
-- Created database session
-- Created base application
-- Configured GitHub repository
+- Configured project structure
+- Created GitHub repository
 - Added project documentation
 
 ---
@@ -118,34 +187,39 @@ http://127.0.0.1:8000/docs
 ## ✅ Days 3–4
 
 ### User Management
+
 - Designed User database model
 - Created Pydantic schemas
 - Implemented user registration endpoint
-- Added password hashing with bcrypt
+- Added password hashing using bcrypt
 - Added email validation
 - Configured user router
 - Tested API using Swagger
 
 ---
 
-## ⏳ Next Step (Days 5–6)
+## 🔜 Next Milestone (Days 5–6)
 
 ### Authentication
+
 - User Login
 - Password Verification
-- JWT Authentication
+- JWT Token Generation
 - Protected API Endpoints
 
 ---
 
-# 📊 Progress
+# 📊 Project Status
+
+**Current Phase**
+
+Backend Development
+
+**Overall Progress**
 
 ```text
 ████░░░░░░ 40%
 ```
-
-Current Phase:
-**Backend Development**
 
 ---
 
@@ -155,12 +229,8 @@ Current Phase:
 
 Computer Engineering Student
 
-Software Engineering Internship Project
-
-2026
-
 ---
 
 # 📄 License
 
-This repository is created for educational and internship purposes.
+This project is available for educational and portfolio purposes.
