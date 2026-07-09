@@ -16,3 +16,13 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+#login request
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str    
+
+#JWT response
+class Token(BaseModel):
+    access_token: str
+    token_type: str
