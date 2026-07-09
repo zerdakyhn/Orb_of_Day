@@ -1,48 +1,36 @@
-# Orb_of_Day
-# 🚀 Orb of Day
+#  Orb of Day
 
-A task and productivity management backend application built with **FastAPI**.
+A task and productivity management backend application developed with **FastAPI**.
 
-This project is being developed as part of my software engineering internship. New features are added and documented throughout the internship period.
-
----
-
-# 📖 About the Project
-
-Orb of Day is a RESTful backend application that helps users organize daily tasks and improve productivity.
-
-The main objectives of this project are:
-
-- User Management
-- Secure Authentication
-- Task Management
-- AI Integration
-- Productivity Tracking
-- Clean Backend Architecture
+This project is being developed throughout my software engineering internship. New features are implemented incrementally and documented daily.
 
 ---
 
-# 🛠 Tech Stack
+# 📖 Project Overview
 
-| Technology | Purpose |
-|------------|---------|
-| Python | Programming Language |
-| FastAPI | Backend Framework |
-| SQLAlchemy | ORM |
-| SQLite | Database |
-| Pydantic | Data Validation |
-| bcrypt | Password Hashing |
-| Uvicorn | ASGI Server |
+Orb of Day is a RESTful backend application designed to help users organize daily tasks, improve productivity, and manage their workflow efficiently.
 
 ---
 
-# 📁 Project Structure
+# 🛠️ Technologies
+
+- Python
+- FastAPI
+- SQLAlchemy
+- SQLite
+- Pydantic
+- bcrypt
+- Uvicorn
+
+---
+
+# 📂 Project Structure
 
 ```
-Orb_of_Day
+Orb_of_Day/
 │
-├── app
-│   ├── routers
+├── app/
+│   ├── routers/
 │   │   ├── user.py
 │   │   └── task.py
 │   │
@@ -61,79 +49,49 @@ Orb_of_Day
 
 # ✅ Completed Features
 
+- FastAPI project setup
+- SQLite database integration
+- SQLAlchemy ORM configuration
 - User database model
 - User registration endpoint
-- Password hashing (bcrypt)
-- SQLite database connection
-- FastAPI project architecture
-- REST API routing
+- Password hashing using bcrypt
 - Swagger API documentation
 
 ---
 
-# 🚧 Upcoming Features
+#  Upcoming Features
 
 - User Login
 - JWT Authentication
 - Protected Routes
 - Task CRUD Operations
 - AI Task Suggestions
-- Dashboard API
+- Dashboard
 - Productivity Statistics
 
 ---
 
-# ⚙ Installation
+# ⚙️ Installation
 
-Clone repository
+Clone the repository
 
 ```bash
 git clone https://github.com/zerdakyhn/Orb_of_Day.git
 ```
 
-Enter project
-
-```bash
-cd Orb_of_Day
-```
-
-Create virtual environment
-
-```bash
-python -m venv venv
-```
-
-Activate virtual environment
-
-macOS / Linux
-
-```bash
-source venv/bin/activate
-```
-
-Windows
-
-```bash
-venv\Scripts\activate
-```
-
-Install packages
+Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run project
+Run the project
 
 ```bash
 python -m uvicorn app.main:app --reload
 ```
 
----
-
-# 📚 API Documentation
-
-Swagger UI
+Swagger Documentation
 
 ```
 http://127.0.0.1:8000/docs
@@ -143,51 +101,51 @@ http://127.0.0.1:8000/docs
 
 # 📅 Internship Progress
 
-## ✅ Day 1
+## ✅ Days 1–2
 
-- Project initialization
-- FastAPI installation
-- Database configuration
-- GitHub repository creation
-
----
-
-## ✅ Day 2
-
-- SQLAlchemy integration
-- Project architecture
-- Database model preparation
-- Router structure
+### Project Initialization
+- Created FastAPI project
+- Configured project structure
+- Connected SQLite database
+- Configured SQLAlchemy
+- Created database session
+- Created base application
+- Configured GitHub repository
+- Added project documentation
 
 ---
 
-## ✅ Day 3
+## ✅ Days 3–4
 
-- User model
-- User registration endpoint
-- Password hashing using bcrypt
-- API testing with Swagger
+### User Management
+- Designed User database model
+- Created Pydantic schemas
+- Implemented user registration endpoint
+- Added password hashing with bcrypt
+- Added email validation
+- Configured user router
+- Tested API using Swagger
 
 ---
 
-## ⏳ Next Step
+## ⏳ Next Step (Days 5–6)
 
-- Login endpoint
-- Password verification
+### Authentication
+- User Login
+- Password Verification
 - JWT Authentication
-- Protected APIs
+- Protected API Endpoints
 
 ---
 
-# 📌 Current Status
+# 📊 Progress
 
-**Phase:** Backend Development
+```text
+████░░░░░░ 40%
+```
 
-Current Progress:
-
-🟩🟩🟩⬜⬜⬜⬜⬜⬜⬜
-
-Approximately **30% Completed**
+Current Phase:
+**Backend Development**
 
 ---
 
