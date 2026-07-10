@@ -1,28 +1,56 @@
 # 🚀 Orb of Day
 
-A modern task and productivity management backend application built with **FastAPI**.
-
-Orb of Day is a RESTful API designed to help users organize their daily tasks, manage productivity, and support future AI-powered recommendations.
-
-The project follows modern backend development practices including layered architecture, secure authentication, and scalable API design.
-
----
-
-# 📖 Project Overview
-
-Orb of Day aims to provide a clean and scalable backend for a productivity application.
-
-Current focus areas include:
-
-- User Management
-- Authentication & Security
-- Task Management
-- RESTful API Development
-- AI Integration (Upcoming)
+![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.116-green?logo=fastapi)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-ORM-red)
+![SQLite](https://img.shields.io/badge/SQLite-Database-blue?logo=sqlite)
+![JWT](https://img.shields.io/badge/JWT-Authentication-black)
+![Pydantic](https://img.shields.io/badge/Pydantic-Validation-E92063)
+![Git](https://img.shields.io/badge/Git-Version%20Control-orange?logo=git)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)
 
 ---
 
-# 🛠️ Tech Stack
+A modern **Task & Productivity Management RESTful API** built with **FastAPI**.
+
+Orb of Day is a backend application that enables users to securely manage daily tasks through a clean, scalable and maintainable architecture.
+
+The project follows modern RESTful API principles and is designed with future scalability and AI-powered productivity features in mind.
+
+---
+
+# ✨ Features
+
+## 👤 User Management
+
+- User Registration
+- User Login
+- Email Validation
+- Password Hashing using bcrypt
+
+## 🔐 Authentication
+
+- JWT Authentication
+- JWT Access Token Generation
+- Secure Password Verification
+
+## ✅ Task Management
+
+- Create Task
+- User–Task Relationship
+- Task Database Model
+
+## ⚙️ Backend
+
+- RESTful API
+- SQLAlchemy ORM
+- SQLite Database
+- Swagger Documentation
+- Pydantic Validation
+
+---
+
+# 🛠️ Technology Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -32,7 +60,63 @@ Current focus areas include:
 | SQLite | Database |
 | Pydantic | Data Validation |
 | bcrypt | Password Hashing |
+| python-jose | JWT Authentication |
 | Uvicorn | ASGI Server |
+| Git | Version Control |
+| GitHub | Source Code Management |
+
+---
+
+# 🏗️ System Architecture
+
+```text
+                 Client
+                    │
+                    ▼
+             FastAPI REST API
+                    │
+       ┌────────────┴────────────┐
+       ▼                         ▼
+ Authentication             Task Module
+       │                         │
+       └────────────┬────────────┘
+                    ▼
+              SQLAlchemy ORM
+                    │
+                    ▼
+               SQLite Database
+```
+
+---
+
+# 🗄️ Database Design
+
+```text
++----------------------+
+|        USERS         |
++----------------------+
+| id                   |
+| username             |
+| email                |
+| hashed_password      |
+| created_at           |
++----------------------+
+           │
+           │ 1
+           │
+           ▼
+          N
++----------------------+
+|        TASKS         |
++----------------------+
+| id                   |
+| title                |
+| description          |
+| completed            |
+| created_at           |
+| owner_id (FK)        |
++----------------------+
+```
 
 ---
 
@@ -59,54 +143,16 @@ Orb_of_Day
 
 ---
 
-# ✨ Current Features
+# 🌐 API Endpoints
 
-### User Management
-
-- User database model
-- User registration endpoint
-- Email validation
-- Secure password hashing using bcrypt
-
-### Backend
-
-- FastAPI application structure
-- SQLAlchemy integration
-- SQLite database
-- RESTful API architecture
-- Swagger API documentation
-
----
-
-# 🚧 Planned Features
-
-### Authentication
-
-- User Login
-- JWT Authentication
-- Protected Routes
-
-### Task Management
-
-- Create Task
-- Update Task
-- Delete Task
-- Complete Task
-- Task Categories
-- Due Dates
-
-### Productivity
-
-- Dashboard
-- Statistics
-- Daily Progress
-- Productivity Reports
-
-### Artificial Intelligence
-
-- AI Task Suggestions
-- Smart Productivity Analysis
-- Personalized Recommendations
+| Method | Endpoint | Description | Status |
+|---------|----------|-------------|--------|
+| POST | `/users/register` | Register User | ✅ |
+| POST | `/users/login` | Login User | ✅ |
+| POST | `/tasks` | Create Task | ✅ |
+| GET | `/tasks` | Get Tasks | ⏳ |
+| PUT | `/tasks/{id}` | Update Task | ⏳ |
+| DELETE | `/tasks/{id}` | Delete Task | ⏳ |
 
 ---
 
@@ -118,39 +164,39 @@ Clone the repository
 git clone https://github.com/zerdakyhn/Orb_of_Day.git
 ```
 
-Move into the project directory
+Go to project directory
 
 ```bash
 cd Orb_of_Day
 ```
 
-Create a virtual environment
+Create virtual environment
 
 ```bash
 python -m venv venv
 ```
 
-Activate the virtual environment
+Activate environment
 
-**macOS / Linux**
+macOS / Linux
 
 ```bash
 source venv/bin/activate
 ```
 
-**Windows**
+Windows
 
 ```bash
 venv\Scripts\activate
 ```
 
-Install dependencies
+Install requirements
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run the application
+Run the project
 
 ```bash
 python -m uvicorn app.main:app --reload
@@ -160,66 +206,65 @@ python -m uvicorn app.main:app --reload
 
 # 📚 API Documentation
 
-After starting the server, Swagger UI is available at:
+After starting the application, open:
 
 ```
 http://127.0.0.1:8000/docs
 ```
 
+Swagger UI allows testing every endpoint.
+
 ---
 
 # 📈 Development Progress
 
-## ✅ Days 1–2
-
-### Project Foundation
-
-- Created FastAPI project
-- Configured application architecture
-- Integrated SQLAlchemy
-- Connected SQLite database
-- Configured project structure
-- Created GitHub repository
-- Added project documentation
+| Sprint | Status |
+|---------|--------|
+| Sprint 1 | ✅ Completed |
+| Sprint 2 Days 1–2 | ✅ Completed |
+| Sprint 2 Days 3–4 | ⏳ In Progress |
+| Sprint 2 Days 5–6 | ⏳ Pending |
 
 ---
 
-## ✅ Days 3–4
+# 🚀 Roadmap
 
-### User Management
-
-- Designed User database model
-- Created Pydantic schemas
-- Implemented user registration endpoint
-- Added password hashing using bcrypt
-- Added email validation
-- Configured user router
-- Tested API using Swagger
-
----
-
-## 🔜 Next Milestone (Days 5–6)
-
-### Authentication
-
-- User Login
-- Password Verification
-- JWT Token Generation
-- Protected API Endpoints
+- ✅ User Registration
+- ✅ User Login
+- ✅ JWT Authentication
+- ✅ Task Model
+- ✅ Task Creation
+- ⏳ Task Editing
+- ⏳ Task Deletion
+- ⏳ Task Status Update
+- ⏳ User Authorization
+- ⏳ Dashboard
+- ⏳ AI Productivity Assistant
 
 ---
 
 # 📊 Project Status
 
-**Current Phase**
+Current Phase
 
-Backend Development
+**Backend Development**
 
-**Overall Progress**
+Overall Progress
 
 ```text
-████░░░░░░ 40%
+██████░░░░ 60%
 ```
+
+---
+
+# 📸 Screenshots
+
+Screenshots will be added as development progresses.
+
+- User Registration
+- User Login
+- Task Creation
+- Swagger Documentation
 
 ---
 
@@ -227,12 +272,12 @@ Backend Development
 
 **Zerda Kayhan**
 
-Computer Engineering Student
+GitHub
+
+https://github.com/zerdakyhn
 
 ---
 
 # 📄 License
 
-This project is available for educational and portfolio purposes.
-
-
+This project is intended for educational and portfolio purposes.
