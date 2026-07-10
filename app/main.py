@@ -2,7 +2,7 @@ from fastapi import FastAPI
 
 from app.database import engine
 from app.models import Base
-from app.routers import user
+from app.routers import user, task
 
 Base.metadata.create_all(bind=engine)
 
@@ -12,6 +12,7 @@ app = FastAPI(
     description="Task and Productivity Management System"
 )
 app.include_router(user.router)
+app.include_router(task.router)
 
 
 @app.get("/")
