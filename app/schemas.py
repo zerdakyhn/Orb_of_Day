@@ -32,6 +32,11 @@ class TaskCreate(BaseModel):
     title: str
     description: Optional[str] = None
 
+class TaskUpdate(BaseModel):
+    title: str
+    description: Optional[str] = None 
+    completed: bool
+
 class TaskResponse(BaseModel):  
     id: int
     title: str
