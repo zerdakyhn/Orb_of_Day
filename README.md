@@ -151,8 +151,8 @@ Orb_of_Day
 | POST | `/users/login` | Login User | ✅ |
 | POST | `/tasks` | Create Task | ✅ |
 | GET | `/tasks` | Get Tasks | ⏳ |
-| PUT | `/tasks/{id}` | Update Task | ⏳ |
-| DELETE | `/tasks/{id}` | Delete Task | ⏳ |
+| PUT | `/tasks/{id}` | Update Task | ✅ |
+| DELETE | `/tasks/{id}` | Delete Task | ✅ |
 
 ---
 
@@ -222,7 +222,7 @@ Swagger UI allows testing every endpoint.
 |---------|--------|
 | Sprint 1 | ✅ Completed |
 | Sprint 2 Days 1–2 | ✅ Completed |
-| Sprint 2 Days 3–4 | ⏳ In Progress |
+| Sprint 2 Days 3–4 | ✅ Completed |
 | Sprint 2 Days 5–6 | ⏳ Pending |
 
 ---
@@ -234,9 +234,9 @@ Swagger UI allows testing every endpoint.
 - ✅ JWT Authentication
 - ✅ Task Model
 - ✅ Task Creation
-- ⏳ Task Editing
-- ⏳ Task Deletion
-- ⏳ Task Status Update
+- ✅ Task Editing
+- ✅ Task Deletion
+- ✅ Task Status Update
 - ⏳ User Authorization
 - ⏳ Dashboard
 - ⏳ AI Productivity Assistant
@@ -252,8 +252,7 @@ Current Phase
 Overall Progress
 
 ```text
-██████░░░░ 60%
-```
+███████░░░ 70%```
 
 ---
 
