@@ -25,18 +25,27 @@ The project follows modern RESTful API principles and is designed with future sc
 
 - User Registration
 - User Login
+- User Profile Update
+- Change Password
+- User Logout
 - Email Validation
+- Username Validation
 - Password Hashing using bcrypt
 
 ## 🔐 Authentication
 
 - JWT Authentication
 - JWT Access Token Generation
+- Protected API Endpoints
+- OAuth2 Authentication
 - Secure Password Verification
 
 ## ✅ Task Management
 
 - Create Task
+- Update Task
+- Delete Task
+- Task Status Update
 - User–Task Relationship
 - Task Database Model
 
@@ -47,7 +56,6 @@ The project follows modern RESTful API principles and is designed with future sc
 - SQLite Database
 - Swagger Documentation
 - Pydantic Validation
-
 ---
 
 # 🛠️ Technology Stack
@@ -149,10 +157,14 @@ Orb_of_Day
 |---------|----------|-------------|--------|
 | POST | `/users/register` | Register User | ✅ |
 | POST | `/users/login` | Login User | ✅ |
+| GET | `/users/me` | Get Current User | ✅ |
+| PUT | `/users/me` | Update User Profile | ✅ |
+| POST | `/users/change-password` | Change Password | ✅ |
+| POST | `/users/logout` | Logout | ✅ |
 | POST | `/tasks` | Create Task | ✅ |
-| GET | `/tasks` | Get Tasks | ⏳ |
 | PUT | `/tasks/{id}` | Update Task | ✅ |
 | DELETE | `/tasks/{id}` | Delete Task | ✅ |
+| GET | `/tasks` | Get User Tasks | ⏳ |
 
 ---
 
@@ -223,21 +235,26 @@ Swagger UI allows testing every endpoint.
 | Sprint 1 | ✅ Completed |
 | Sprint 2 Days 1–2 | ✅ Completed |
 | Sprint 2 Days 3–4 | ✅ Completed |
-| Sprint 2 Days 5–6 | ⏳ Pending |
+| Sprint 2 Days 5–6 | ✅ Completed |
+| Sprint 3 | ⏳ In Progress |
 
----
+--
 
 # 🚀 Roadmap
 
 - ✅ User Registration
 - ✅ User Login
 - ✅ JWT Authentication
+- ✅ User Profile Update
+- ✅ Change Password
+- ✅ Logout
 - ✅ Task Model
 - ✅ Task Creation
 - ✅ Task Editing
 - ✅ Task Deletion
 - ✅ Task Status Update
-- ⏳ User Authorization
+- ⏳ Task Authorization
+- ⏳ Get User Tasks
 - ⏳ Dashboard
 - ⏳ AI Productivity Assistant
 
@@ -252,20 +269,10 @@ Current Phase
 Overall Progress
 
 ```text
-███████░░░ 70%```
+████████░░ 80%
 
 ---
 
-# 📸 Screenshots
-
-Screenshots will be added as development progresses.
-
-- User Registration
-- User Login
-- Task Creation
-- Swagger Documentation
-
----
 
 # 👩‍💻 Developer
 

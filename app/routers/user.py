@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.orm import Session
 
 from app.database import get_db
@@ -7,7 +8,8 @@ from app.models import User
 from app.schemas import (
     UserCreate,
     UserResponse,
-    UserLogin,
+    UserUpdate,
+    ChangePassword,
     Token,
 )
 
@@ -15,6 +17,7 @@ from app.auth import (
     hash_password,
     verify_password,
     create_access_token,
+    get_current_user, 
 )
 
 router = APIRouter(prefix="/users", tags=["Users"])
@@ -57,13 +60,13 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
 
 @router.post("/login", response_model=Token)
 def login(
-    user: UserLogin,
-    db: Session = Depends(get_db),
+  from_data: OAuth2PasswordRequestForm = Depends(),
+  db: Session = Depends(get_db),
 ):
 
     # Find user by email
     db_user = db.query(User).filter(
-        User.email == user.email
+        User.email == from_data.username
     ).first()
 
     if not db_user:
@@ -74,7 +77,7 @@ def login(
 
     # Verify password
     if not verify_password(
-        user.password,
+        from_data.password,
         db_user.hashed_password 
     ):
         
@@ -93,3 +96,106 @@ def login(
         "token_type": "bearer"
     }
 
+@router.get("/me")
+def get_me(
+    current_user: str = Depends(get_current_user),
+):
+    return {
+        "message": "Access granted",
+        "email": current_user
+    }
+@router.put("/me", response_model=UserResponse)
+def update_me(
+    user_update: UserUpdate,
+    current_user: str = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    # Find the authenticated user
+    db_user = db.query(User).filter(
+        User.email == current_user
+    ).first()
+
+    if not db_user:
+        raise HTTPException(
+            status_code=404,
+            detail="User not found"
+        )
+
+    # Check if the new email is already used by another user
+    existing_email = db.query(User).filter(
+        User.email == user_update.email,
+        User.id != db_user.id
+    ).first()
+
+    if existing_email:
+        raise HTTPException(
+            status_code=400,
+            detail="Email already registered"
+        )
+
+    # Check if the new username is already used by another user
+    existing_username = db.query(User).filter(
+        User.username == user_update.username,
+        User.id != db_user.id
+    ).first()
+
+    if existing_username:
+        raise HTTPException(
+            status_code=400,
+            detail="Username already exists"
+        )
+
+    # Update user information
+    db_user.username = user_update.username
+    db_user.email = user_update.email
+
+    db.commit()
+    db.refresh(db_user)
+
+    # Return the updated user
+    return db_user
+
+@router.post("/change-password")
+def change_password(
+    password_data: ChangePassword,
+    current_user: str = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    # Find the authenticated user
+    db_user = db.query(User).filter(
+        User.email == current_user
+    ).first()
+
+    if not db_user:
+        raise HTTPException(
+            status_code=404,
+            detail="User not found"
+        )
+
+    # Verify the current password
+    if not verify_password(
+        password_data.old_password,
+        db_user.hashed_password
+    ):
+        raise HTTPException(
+            status_code=400,
+            detail="Current password is incorrect"
+        )
+
+    # Hash the new password
+    db_user.hashed_password = hash_password(
+        password_data.new_password
+    )
+
+    db.commit()
+
+    return {
+        "message": "Password updated successfully"
+    }
+@router.post("/logout")
+def logout():
+    # In a stateless JWT authentication system, logout is handled on the client side.
+    # The client should simply delete the stored JWT token to "log out".
+    return {
+        "message": "Successfully logged out. Please remove your token from the client."
+    }

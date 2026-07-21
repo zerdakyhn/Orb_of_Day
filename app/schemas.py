@@ -28,14 +28,22 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
+class UserUpdate(BaseModel):
+    username: str
+    email: EmailStr
+
+class ChangePassword(BaseModel):
+    old_password: str
+    new_password: str
+
 class TaskCreate(BaseModel):
     title: str
     description: Optional[str] = None
 
 class TaskUpdate(BaseModel):
-    title: str
-    description: Optional[str] = None 
-    completed: bool
+    title: Optional[str] = None
+    description: Optional[str] = None
+    completed: Optional[bool] = None
 
 class TaskResponse(BaseModel):  
     id: int
@@ -47,3 +55,4 @@ class TaskResponse(BaseModel):
 
     class Config:
         from_attributes = True  
+
